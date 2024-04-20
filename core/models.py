@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -42,6 +44,10 @@ class Warehouse(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Warehouse')
+        verbose_name_plural = _('Warehouses')
+
 
 class WarehouseItem(models.Model):
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE, verbose_name=_("Product"))
@@ -57,7 +63,7 @@ class WarehouseItem(models.Model):
 
 
 class WarehouseArchive(BaseModel):
+    uuid = models.UUIDField(verbose_name=_("UUID"), editable=False, default=uuid4)
     item = models.ForeignKey(to=WarehouseItem, verbose_name=_("Item"), on_delete=models.RESTRICT)
     amount = models.PositiveIntegerField(default=1, verbose_name=_("Item amount"))
-
 

@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy as _
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -72,7 +72,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
+
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('fa', _('Persian'))
+)
+
+LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'UTC'
 
