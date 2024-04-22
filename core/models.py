@@ -84,6 +84,15 @@ class WarehouseArchive(BaseModel):
     def __str__(self):
         return f'{self.recorder_user.username} - {self.uuid}'
 
+    @property
+    def total_price(self):
+        s = 0
+
+        for i in self.archiveitem_set.all():
+            s += i.amount * i.warehouse_item.product.price
+
+        return s
+
     class Meta:
         verbose_name = _("Warehouse Archive")
         verbose_name_plural = _("Warehouse Archives")
