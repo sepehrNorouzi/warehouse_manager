@@ -109,9 +109,13 @@
             <div class="row mt-2 mb-5">
                 <p class="fw-bold">{% translate 'Date' %}: <span
                         class="text-muted">{{ data.archive.created_at.date }}</span></p>
+
                 <p class="fw-bold">{% translate 'Time' %}: <span
                         class="text-muted">{{ data.archive.created_at.time }}</span></p>
-                <p class="fw-bold mt-3">{% translate 'Signature' %}: ....................{{ data.archive.recorder }}</p>
+                <p class="fw-bold mt-3">{% translate 'Recorder User' %}: {{ data.archive.recorder }}</p>
+
+                <p class="fw-bold mt-3">{% translate 'Signature' %}:</p>
+
             </div>
 
         </div>

@@ -1,4 +1,6 @@
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404
+
 
 from core.models import WarehouseArchive, Company
 
@@ -6,16 +8,13 @@ from core.models import WarehouseArchive, Company
 # Create your views here.
 
 def create_receipt(request, pk):
+    if not request.user.is_staff and not request.user.is_superuser:
+        raise Http404
     archive: WarehouseArchive = get_object_or_404(WarehouseArchive, pk=pk)
     company: Company = Company.objects.first()
     data = {
-        "company": {
-            'name': company.name,
-            'phone': company.phone,
-            'address': company.address,
-        },
         "archive": {
-            "uuid": archive.uuid,
+            "uuid": archive.invoice_number,
             "recorder": archive.recorder_user.get_full_name(),
             "description": archive.description,
             "total_price": archive.total_price,
@@ -25,6 +24,13 @@ def create_receipt(request, pk):
 
         ]
     }
+
+    if company:
+        data['company'] = {
+            'name': company.name,
+            'phone': company.phone,
+            'address': company.address,
+        }
 
     for i in archive.archiveitem_set.all():
         data['items'].append({

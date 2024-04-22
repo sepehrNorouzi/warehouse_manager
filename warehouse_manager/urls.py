@@ -10,5 +10,5 @@ admin.site.site_title = _('Poseidon Warehouse manager')  # default: "Django site
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('admin/', permanent=True)),
-    path('<int:pk>/hello/', create_receipt)
+    path('<int:pk>/invoice/', create_receipt, name='receipt')
 ]

@@ -1,3 +1,4 @@
+import random
 from uuid import uuid4
 
 from django.contrib.auth.models import User
@@ -5,7 +6,7 @@ from django.db import models, IntegrityError
 from django.utils.translation import gettext_lazy as _
 
 from core.validator import mobile_regex
-
+from string import ascii_uppercase, digits
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now=True, verbose_name=_("Created at"))
@@ -93,6 +94,7 @@ class WarehouseItem(models.Model):
 
 
 class WarehouseArchive(BaseModel):
+    invoice_number = models.CharField(verbose_name=_("Invoice number"), max_length=100, blank=True)
     uuid = models.UUIDField(verbose_name=_("UUID"), editable=False, default=uuid4)
     recorder_user = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name=_("Recorder User"))
     description = models.TextField(null=True, blank=True, verbose_name=_("Archive description"))
@@ -108,6 +110,23 @@ class WarehouseArchive(BaseModel):
             s += i.amount * i.warehouse_item.product.price
 
         return s
+
+    def generate_invoice(self):
+        invoice_number = ''.join(random.choices(ascii_uppercase, k=4))
+        invoice_letter = ''.join(random.choices(digits, k=4))
+        invoice = invoice_number + '-' + invoice_letter
+
+        if self.__class__.objects.filter(invoice_number=invoice).exists():
+            return self.generate_invoice()
+        return invoice
+
+    def save(
+            self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
+        if not self.pk:
+            self.invoice_number = self.generate_invoice()
+
+        super(WarehouseArchive, self).save(force_insert, force_update, using, update_fields)
 
     class Meta:
         verbose_name = _("Warehouse Archive")
