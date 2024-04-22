@@ -76,6 +76,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
+X_FRAME_OPTIONS = "*"
 
 LANGUAGES = (
     ('en', _('English')),

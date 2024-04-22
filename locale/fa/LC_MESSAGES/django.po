@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-20 18:24+0330\n"
+"POT-Creation-Date: 2024-04-22 10:54+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,91 +18,154 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: core/apps.py:7
+#: core/apps.py:8
 msgid "Core"
 msgstr "هسته ی برنامه"
 
-#: core/models.py:8
+#: core/models.py:9
 msgid "Created at"
 msgstr "زمان ساخت"
 
-#: core/models.py:15
+#: core/models.py:16
+msgid "Unit name"
+msgstr "نام واحد"
+
+#: core/models.py:22 core/models.py:45
+msgid "Unit"
+msgstr "واحد"
+
+#: core/models.py:23
+msgid "Units"
+msgstr "واحدها"
+
+#: core/models.py:27
 msgid "Category name"
 msgstr "نام دسته بندی"
 
-#: core/models.py:18
+#: core/models.py:30
 msgid "Category"
 msgstr "دسته بندی"
 
-#: core/models.py:19
+#: core/models.py:31
 msgid "Categories"
 msgstr "دسته بندی‌ها"
 
-#: core/models.py:26
+#: core/models.py:38
 msgid "Product Name"
 msgstr "نام محصول"
 
-#: core/models.py:27
+#: core/models.py:39
 msgid "Product description"
 msgstr "توضیحات محصول"
 
-#: core/models.py:29
+#: core/models.py:41
 msgid "Product category"
 msgstr "دسته بندی محصول"
 
-#: core/models.py:31
+#: core/models.py:43
 msgid "Price"
 msgstr "قیمت"
 
-#: core/models.py:34 core/models.py:53
+#: core/models.py:45
+msgid "Price per unit."
+msgstr "قیمت به ازای یک واحد"
+
+#: core/models.py:48 core/models.py:67
 msgid "Product"
 msgstr "محصول"
 
-#: core/models.py:35
+#: core/models.py:49
 msgid "Products"
 msgstr "محصولات"
 
-#: core/models.py:42
+#: core/models.py:56
 msgid "Warehouse Name"
 msgstr "نام انبار"
 
-#: core/models.py:48 core/models.py:55
+#: core/models.py:62 core/models.py:69
 msgid "Warehouse"
 msgstr "انبار"
 
-#: core/models.py:49
+#: core/models.py:63
 msgid "Warehouses"
 msgstr "انبارها"
 
-#: core/models.py:54
+#: core/models.py:68
 msgid "Product amount"
 msgstr "تعداد محصول"
 
-#: core/models.py:58
+#: core/models.py:72
 msgid "Warehouse Item"
 msgstr "آیتم انبار"
 
-#: core/models.py:59
+#: core/models.py:73
 msgid "Warehouse Items"
 msgstr "آیتم های انبار"
 
-#: core/models.py:66
+#: core/models.py:80
 msgid "UUID"
 msgstr "شناسه یکتا"
 
-#: core/models.py:67
+#: core/models.py:81
+msgid "Recorder User"
+msgstr "ثبت کننده"
+
+#: core/models.py:82
+#, fuzzy
+#| msgid "Product description"
+msgid "Archive description"
+msgstr "توضیحات آرشیو"
+
+#: core/models.py:88
+#, fuzzy
+#| msgid "Warehouse Name"
+msgid "Warehouse Archive"
+msgstr "آرشیو انبار"
+
+#: core/models.py:89
+#, fuzzy
+#| msgid "Warehouse Items"
+msgid "Warehouse Archives"
+msgstr "آرشیوهای انبار"
+
+#: core/models.py:93
 msgid "Item"
 msgstr "آیتم"
 
-#: core/models.py:68
-msgid "Item amount"
-msgstr "مقدار آیتم"
+#: core/models.py:94
+msgid "Amount"
+msgstr "مقدار"
 
-#: warehouse_manager/settings.py:79
+#: core/models.py:95
+msgid "Archive"
+msgstr "آرشیو"
+
+#: core/models.py:102
+#, python-brace-format
+msgid ""
+"Not enough {self.warehouse_item.product.name} in the {self.warehouse_item."
+"warehouse.name}"
+msgstr ""
+"مقدار {self.warehouse_item.product.name} در انبار {self.warehouse_item."
+"warehouse.name} کافی نیست"
+
+#: core/models.py:110
+#, fuzzy
+#| msgid "Warehouse Item"
+msgid "Archive Item"
+msgstr "آیتم آرشیو"
+
+#: core/models.py:111
+#, fuzzy
+#| msgid "Warehouse Items"
+msgid "Archive Items"
+msgstr "آیتم های آرشیو"
+
+#: warehouse_manager/settings.py:82
 msgid "English"
 msgstr "انگلیسی"
 
-#: warehouse_manager/settings.py:80
+#: warehouse_manager/settings.py:83
 msgid "Persian"
 msgstr "فارسی"
 
@@ -117,3 +180,6 @@ msgstr "مدیریت انبار"
 #| msgid "Warehouse Name"
 msgid "Poseidon Warehouse manager"
 msgstr "مدیریت انبار خدای آب"
+
+#~ msgid "Item amount"
+#~ msgstr "مقدار آیتم"

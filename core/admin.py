@@ -1,12 +1,22 @@
 from django.contrib import admin
 
-from core.models import Category, Product, Warehouse, WarehouseItem
+from core.models import Category, Product, Warehouse, WarehouseItem, WarehouseArchive, ArchiveItem, Unit
 
 
 @admin.register(Category)
 class CategoryModelAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name', ]
+
+
+@admin.register(Unit)
+class UnitModelAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ArchiveItem)
+class WarehouseArchiveItemModelAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Product)
@@ -25,3 +35,13 @@ class WarehouseItemInlineAdmin(admin.TabularInline):
 class WarehouseModelAdmin(admin.ModelAdmin):
     inlines = [WarehouseItemInlineAdmin, ]
     list_display = ['name', ]
+
+
+class ArchiveItemInlineModelAdmin(admin.TabularInline):
+    model = ArchiveItem
+    extra = 1
+
+
+@admin.register(WarehouseArchive)
+class WarehouseArchiveModelAdmin(admin.ModelAdmin):
+    inlines = [ArchiveItemInlineModelAdmin, ]
