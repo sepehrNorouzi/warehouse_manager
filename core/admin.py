@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from core.models import Category, Product, Warehouse, WarehouseItem, WarehouseArchive, ArchiveItem, Unit
+from core.models import Category, Product, Warehouse, WarehouseItem, WarehouseArchive, ArchiveItem, Unit, Company
+
+
+@admin.register(Company)
+class CompanyModelAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Category)

@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import models, IntegrityError
 from django.utils.translation import gettext_lazy as _
 
+from core.validator import mobile_regex
+
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now=True, verbose_name=_("Created at"))
@@ -21,6 +23,20 @@ class Unit(models.Model):
     class Meta:
         verbose_name = _('Unit')
         verbose_name_plural = _('Units')
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_('Company name'))
+    phone = models.CharField(max_length=100, verbose_name=_('Company phone'), validators=[mobile_regex], null=True,
+                             blank=True)
+    address = models.TextField(null=True, blank=True, verbose_name=_("Company address"), )
+
+    def __str__(self):
+        return f'{self.name} - {self.phone}'
+
+    class Meta:
+        verbose_name = _("Company")
+        verbose_name_plural = _("Companies")
 
 
 class Category(models.Model):

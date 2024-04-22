@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-22 10:54+0330\n"
+"POT-Creation-Date: 2024-04-22 15:34+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,125 +22,147 @@ msgstr ""
 msgid "Core"
 msgstr "هسته ی برنامه"
 
-#: core/models.py:9
+#: core/models.py:11
 msgid "Created at"
 msgstr "زمان ساخت"
 
-#: core/models.py:16
+#: core/models.py:18
 msgid "Unit name"
 msgstr "نام واحد"
 
-#: core/models.py:22 core/models.py:45
+#: core/models.py:24 core/models.py:61
 msgid "Unit"
 msgstr "واحد"
 
-#: core/models.py:23
+#: core/models.py:25
 msgid "Units"
 msgstr "واحدها"
 
-#: core/models.py:27
-msgid "Category name"
+#: core/models.py:29
+#, fuzzy
+#| msgid "Category name"
+msgid "Company name"
 msgstr "نام دسته بندی"
 
 #: core/models.py:30
+msgid "Company phone"
+msgstr ""
+
+#: core/models.py:32
+msgid "Company address"
+msgstr ""
+
+#: core/models.py:38
+msgid "Company"
+msgstr ""
+
+#: core/models.py:39
+msgid "Companies"
+msgstr ""
+
+#: core/models.py:43
+msgid "Category name"
+msgstr "نام دسته بندی"
+
+#: core/models.py:46
 msgid "Category"
 msgstr "دسته بندی"
 
-#: core/models.py:31
+#: core/models.py:47
 msgid "Categories"
 msgstr "دسته بندی‌ها"
 
-#: core/models.py:38
+#: core/models.py:54
 msgid "Product Name"
 msgstr "نام محصول"
 
-#: core/models.py:39
+#: core/models.py:55
 msgid "Product description"
 msgstr "توضیحات محصول"
 
-#: core/models.py:41
+#: core/models.py:57
 msgid "Product category"
 msgstr "دسته بندی محصول"
 
-#: core/models.py:43
+#: core/models.py:59 templates/receipt.html:70
 msgid "Price"
 msgstr "قیمت"
 
-#: core/models.py:45
+#: core/models.py:61
 msgid "Price per unit."
 msgstr "قیمت به ازای یک واحد"
 
-#: core/models.py:48 core/models.py:67
+#: core/models.py:64 core/models.py:83 templates/receipt.html:67
 msgid "Product"
 msgstr "محصول"
 
-#: core/models.py:49
+#: core/models.py:65
 msgid "Products"
 msgstr "محصولات"
 
-#: core/models.py:56
+#: core/models.py:72
 msgid "Warehouse Name"
 msgstr "نام انبار"
 
-#: core/models.py:62 core/models.py:69
+#: core/models.py:78 core/models.py:85 templates/receipt.html:71
 msgid "Warehouse"
 msgstr "انبار"
 
-#: core/models.py:63
+#: core/models.py:79
 msgid "Warehouses"
 msgstr "انبارها"
 
-#: core/models.py:68
+#: core/models.py:84
 msgid "Product amount"
 msgstr "تعداد محصول"
 
-#: core/models.py:72
+#: core/models.py:88
 msgid "Warehouse Item"
 msgstr "آیتم انبار"
 
-#: core/models.py:73
+#: core/models.py:89
 msgid "Warehouse Items"
 msgstr "آیتم های انبار"
 
-#: core/models.py:80
+#: core/models.py:96
 msgid "UUID"
 msgstr "شناسه یکتا"
 
-#: core/models.py:81
+#: core/models.py:97
 msgid "Recorder User"
 msgstr "ثبت کننده"
 
-#: core/models.py:82
+#: core/models.py:98
 #, fuzzy
 #| msgid "Product description"
 msgid "Archive description"
 msgstr "توضیحات آرشیو"
 
-#: core/models.py:88
+#: core/models.py:113
 #, fuzzy
 #| msgid "Warehouse Name"
 msgid "Warehouse Archive"
 msgstr "آرشیو انبار"
 
-#: core/models.py:89
+#: core/models.py:114
 #, fuzzy
 #| msgid "Warehouse Items"
 msgid "Warehouse Archives"
 msgstr "آرشیوهای انبار"
 
-#: core/models.py:93
+#: core/models.py:118
 msgid "Item"
 msgstr "آیتم"
 
-#: core/models.py:94
+#: core/models.py:119 templates/receipt.html:68
 msgid "Amount"
 msgstr "مقدار"
 
-#: core/models.py:95
+#: core/models.py:120
 msgid "Archive"
 msgstr "آرشیو"
 
-#: core/models.py:102
+#: core/models.py:127
 #, python-brace-format
 msgid ""
 "Not enough {self.warehouse_item.product.name} in the {self.warehouse_item."
@@ -149,23 +171,63 @@ msgstr ""
 "مقدار {self.warehouse_item.product.name} در انبار {self.warehouse_item."
 "warehouse.name} کافی نیست"
 
-#: core/models.py:110
+#: core/models.py:135
 #, fuzzy
 #| msgid "Warehouse Item"
 msgid "Archive Item"
 msgstr "آیتم آرشیو"
 
-#: core/models.py:111
+#: core/models.py:136
 #, fuzzy
 #| msgid "Warehouse Items"
 msgid "Archive Items"
 msgstr "آیتم های آرشیو"
 
-#: warehouse_manager/settings.py:82
+#: core/validator.py:8
+msgid ""
+"Phone number must be entered in the format:+989999999999' or '99999999999'."
+"Up to 13 digits allowed.allowed characters: [0-9] and '+'."
+msgstr ""
+
+#: templates/receipt.html:59
+msgid "Invoice"
+msgstr "صورتحساب"
+
+#: templates/receipt.html:69
+msgid "Fee"
+msgstr "فی"
+
+#: templates/receipt.html:91
+#, fuzzy
+#| msgid "Amount"
+msgid "Total Amount"
+msgstr "جمع کل"
+
+#: templates/receipt.html:103
+msgid "Total"
+msgstr "کل"
+
+#: templates/receipt.html:110
+msgid "Date"
+msgstr "تاریخ"
+
+#: templates/receipt.html:112
+msgid "Time"
+msgstr "ساعت"
+
+#: templates/receipt.html:114
+msgid "Signature"
+msgstr "امضا"
+
+#: templates/receipt.html:118
+msgid "Print"
+msgstr "آماده سازی برای چاپ"
+
+#: warehouse_manager/settings.py:84
 msgid "English"
 msgstr "انگلیسی"
 
-#: warehouse_manager/settings.py:83
+#: warehouse_manager/settings.py:85
 msgid "Persian"
 msgstr "فارسی"
 

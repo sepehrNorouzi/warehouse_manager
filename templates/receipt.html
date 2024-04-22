@@ -48,10 +48,9 @@
                 <div class="col-xl-12">
 
                     <ul class="list-unstyled float-end">
-                        <li style="font-size: 30px; color: red;">Company</li>
-                        <li>123, Elm Street</li>
-                        <li>123-456-789</li>
-                        <li>mail@mail.com</li>
+                        <li style="font-size: 30px; color: red;">{{ data.company.name }}</li>
+                        <li>{{ data.company.address }}</li>
+                        <li>{{ data.company.phone }}</li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +75,7 @@
                     {% for i in data.items %}
                         <tr>
                             <td>{{ i.name }}</td>
-                            <td>{{ i.amount }}</td>
+                            <td>{{ i.amount }} {{ i.unit }}</td>
                             <td>{{ i.fee }}</td>
                             <td>{{ i.price }}</td>
                             <td>{{ i.warehouse }}</td>
@@ -112,7 +111,7 @@
                         class="text-muted">{{ data.archive.created_at.date }}</span></p>
                 <p class="fw-bold">{% translate 'Time' %}: <span
                         class="text-muted">{{ data.archive.created_at.time }}</span></p>
-                <p class="fw-bold mt-3">{% translate 'Signature' %}:</p>
+                <p class="fw-bold mt-3">{% translate 'Signature' %}: ....................{{ data.archive.recorder }}</p>
             </div>
 
         </div>
